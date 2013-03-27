@@ -11,15 +11,13 @@
     }
   </style>
   <section>
-    <div class="flex hbox boxcenter">
-      <div class="noflex vbox boxcenter" style="height:300px;text-align:center">
-       <input id="speech-input-field" type="text" x-webkit-speech />
-       <p style="display:none">Speech input is not enabled in your browser.<br>
-       Try running Google Chrome with the <code>--enable-speech-input</code> flag.</p>
-      </div>
+    <div style="height:300px;text-align:center">
+      <%# form{ :action => "", :method => "post"} %>
+      <input id="speech-input-field" type="text" x-webkit-speech />
     </div>
     <script>
       if (!('webkitSpeech' in document.createElement('input'))).bind('webkitspeechchange', function() {
+        
         }); {
         document.querySelector('#speech-input p').style.display = 'block';
       }

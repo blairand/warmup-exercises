@@ -1,23 +1,24 @@
 require 'speech'
-require 'sinatra'
+# require 'sinatra'
 
-get '/' do
-  erb :index2
-end
+# get '/' do
+#   erb :index2
+# end
 
 
 class Say
-  attr_reader :chars
+  attr_reader :chunk
+  KEY = ["", "Thousand", "Million", "Billion"]
 
   def initialize(input)
-    @chars = input
+    `say -o in_english.wav --data-format=LEF32@8000 "#{input}" `
+    audio = Speech::AudioToText.new("in_english.wav")
+    @chunk = audio.to_text.inspect
   end
 
-  def in_numbers
-    `say -o in_english.wav --data-format=LEF32@8000 "#{@chars}" `  
-    audio = Speech::AudioToText.new("in_english.wav")
-    puts "audio: #{audio.to_text.inspect}"
+  def in_english    
+    chunks = @chunk.split(",")
+    chunks.reverse.zip(KEY).reverse
   end
 end
 
-Say.new("one million 3 hundred thousand and 23").in_numbers
