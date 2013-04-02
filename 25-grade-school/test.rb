@@ -52,4 +52,12 @@ class SchoolTest < MiniTest::Unit::TestCase
     }
     assert_equal sorted, school.sort
   end
+
+  def test_find_grade_from_student_name
+    school.add("Jennifer", 4)
+    school.add("Kareem", 6)
+    school.add("Christopher", 4)
+    school.add("Kyle", 3)
+    assert_equal 4, school.student("Jennifer")
+  end
 end
