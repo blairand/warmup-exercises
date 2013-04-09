@@ -4,6 +4,7 @@ require_relative './secret_handshake'
 
 class SecretHandshakeTest < MiniTest::Unit::TestCase
   def test_handshake_1_to_wink
+    skip
     handshake = SecretHandshake.new("1")
     assert_equal ["wink"], handshake.commands
   end
@@ -27,19 +28,16 @@ class SecretHandshakeTest < MiniTest::Unit::TestCase
   end
 
   def test_handshake_11_to_wink_and_double_blink
-    skip
     handshake = SecretHandshake.new("11")
     assert_equal ["wink","double blink"], handshake.commands
   end
 
   def test_handshake_10011_to_double_blink_and_wink
-    skip
     handshake = SecretHandshake.new("10011")
     assert_equal ["double blink","wink"], handshake.commands
   end
 
   def test_handshake_11111_to_double_blink_and_wink
-    skip
     handshake = SecretHandshake.new("11111")
     assert_equal ["jump","close your eyes","double blink","wink"], handshake.commands
   end
