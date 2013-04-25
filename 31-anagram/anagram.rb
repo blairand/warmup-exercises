@@ -4,13 +4,13 @@ class Anagram
     @word = input.split("").sort
   end
 
-  def match(stuff)
-    stuff.select do |w| 
-      chompychomp(w) == @word
+  def match(matching)
+    matching.select do |w| 
+      anagram(w) == @word
     end
   end
 
-  def chompychomp(big_word)
-    big_word.split("").sort
+  def anagram(test_word)
+    test_word.split("").sort
   end
 end
