@@ -8,12 +8,10 @@ class TriangeTest < MiniTest::Unit::TestCase
   end
 
   def test_larger_equilateral_triangles_also_have_equal_sides
-    skip
     assert_equal :equilateral, Triangle.new(10, 10, 10).kind
   end
 
   def test_isosceles_triangles_have_last_two_sides_equal
-    skip
     assert_equal :isosceles, Triangle.new(3, 4, 4).kind
   end
 
