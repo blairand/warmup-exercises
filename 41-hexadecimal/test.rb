@@ -8,7 +8,6 @@ class HexadecimalTest < MiniTest::Unit::TestCase
   end
 
   def test_hex_c_is_decimal_12
-    skip
     assert_equal 12, Hexadecimal.new("c").to_decimal
   end
 
